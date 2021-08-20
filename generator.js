@@ -4,7 +4,7 @@ const fse = require('fs-extra')
 
 const isBinary = require('isbinaryfile')
 
-async function generate (dir, files, base = '', rootOptions = {}) {
+async function generate(dir, files, base = '', rootOptions = {}) {
   const glob = require('glob')
 
   glob.sync('**/*', {
@@ -37,14 +37,20 @@ module.exports = (api, options, rootOptions) => {
     return {
       dependencies: {
         'regenerator-runtime': '^0.12.1',// 锁定版本，避免高版本在小程序中出错
-        '@dcloudio/uni-helper-json': '*'
+        '@dcloudio/uni-helper-json': '*',
+        "vuex-persistedstate": "^4.0.0-beta.3",
+		    "y-uni-request": "^1.0.19"
       },
       devDependencies: {
         "@babel/runtime": "~7.12.0",// 临时指定版本，7.13.x 会报错
         'postcss-comment': '^2.0.0',
         '@dcloudio/types': '*',
         'miniprogram-api-typings': '*',
-        'mini-types': '*'
+        'mini-types': '*',
+        'copy-webpack-plugin': '^5.0.0',
+        "postcss-discard-comments": "^4.0.2",
+        "sass": "^1.32.4",
+        "sass-loader": "^10.1.1",
       }
     }
   })
@@ -135,7 +141,7 @@ module.exports = (api, options, rootOptions) => {
       const dirNames = ['cloudfunctions-aliyun', 'cloudfunctions-tcb']
       dirNames.forEach(dirName => {
         const dirPath = path.join(tmp, './', dirName)
-        if(fs.existsSync(dirPath)) {
+        if (fs.existsSync(dirPath)) {
           fse.moveSync(dirPath, path.join(tmp, '../', dirName), {
             overwrite: true
           })
