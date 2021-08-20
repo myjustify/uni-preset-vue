@@ -1,22 +1,22 @@
 <template>
 	<view :class="[ comName ]">
-			home
+
 	</view>
 </template>
 
 <script>
 	export default {
-		name:"home",
+		name:"y-mask",
 		data(){
 			return {
-				comName: "home",
+				comName: "y-mask",
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-$name: '.home';
+$name: '.y-mask';
 #{$name}{
 
 }

@@ -1,0 +1,122 @@
+page {
+	color: $uni-text-color;
+	font-size: $uni-font-size-base;
+	background-color: #edf1f8;
+	min-height: 100%;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+div,
+view,
+text,
+scroll-view,
+swiper,
+button,
+form,
+input,
+textarea,
+label,
+navigator,
+image {
+	box-sizing: border-box;
+	font-size: $uni-font-size-base;
+}
+image {
+	vertical-align: middle;
+	width: $uni-img-size-base;
+	height: $uni-img-size-base;
+}
+
+.loading-more {
+	text-align: center;
+	color: $uni-text-color-grey;
+	padding: 20rpx 0;
+}
+
+.version {
+	width: 100%;
+	position: fixed;
+	bottom: 70rpx;
+	font-size: 22rpx;
+	color: #bdc0cb;
+	text-align: center;
+}
+
+.remind {
+	padding: 26rpx 24rpx;
+	display: flex;
+	justify-content: flex-start !important;
+	align-items: flex-start !important;
+	color: #eb344f;
+	white-space: wrap;
+	word-break: break-all;
+	background: #fff;
+	view {
+		font-size: 22rpx;
+		color: #eb344f;
+		&.remind-content {
+			flex: 1;
+			white-space: normal;
+			word-break: break-all;
+			word-wrap: break-word;
+			padding-bottom: 6rpx;
+		}
+	}
+	checkbox {
+		margin-right: 20rpx;
+	}
+	image {
+		width: 28rpx;
+		height: 28rpx;
+		margin-right: 3px;
+	}
+}
+view.fixedBottom {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: $-index-top;
+}
+view.fixTop{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: $-index-top;
+}
+
+// 定义混入指令，用于在非nvue环境下的flex定义，因为nvue没有display属性，会报错
+@mixin vue-flex($direction: row) {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	flex-direction: $direction;
+	align-items: center;
+	// flex-wrap: wrap;
+	/* #endif */
+}
+
+.flex-row {
+	@include vue-flex;
+}
+.flex-row-b {
+	@include vue-flex;
+	justify-content: space-between;
+}
+.flex-row-a {
+	@include vue-flex;
+	justify-content: space-around;
+}
+.flex-row-c {
+	@include vue-flex;
+	justify-content: center;
+}
+.flex-row-end {
+	@include vue-flex;
+	justify-content: flex-end;
+}
+.flex-col {
+	@include vue-flex(column);
+}

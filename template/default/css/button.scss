@@ -1,0 +1,71 @@
+$buttonList: (
+	'primary': $uni-color-primary,
+	'success': $uni-color-success,
+	'warn': $uni-color-warning,
+	'error': $uni-color-error,
+	'hover': $uni-bg-color-hover,
+	'white': $uni-bg-color
+);
+button {
+	border: none;
+	outline: none;
+	padding: 0;
+	margin: 0 auto;
+	height: 88rpx;
+	line-height: 88rpx;
+	border-radius: $uni-border-radius-base;
+	&::after {
+		border: none;
+	}
+	&[plain] {
+		border: none;
+	}
+	&.button-hover[plain] {
+		border: none;
+	}
+	@each $name, $val in $buttonList {
+		@if $name== 'white' {
+			&[type='#{$name}'] {
+				background: $val;
+			}
+		} @else {
+			&[type='#{$name}'] {
+				color: $uni-bg-color;
+				background: $val;
+			}
+		}
+
+		&.button-hover[type='#{$name}'] {
+			background: darken($val, 5%);
+		}
+
+		&[type='#{$name}'][plain] {
+			color: $val;
+			background: $uni-bg-color;
+			border: 1px solid $val;
+		}
+		&.button-hover[type='#{$name}'][plain] {
+			color: darken($val, 5%);
+			background: $uni-bg-color;
+			border: 1px solid darken($val, 5%);
+		}
+	}
+	&[size='mini'] {
+		height: 44rpx;
+		line-height: 44rpx;
+		padding: 0 14rpx;
+	}
+	&[disabled] {
+		background: #eceef7;
+		color: #ccc;
+	}
+	&.defaultButton {
+		height: 88rpx;
+		color: #fff;
+		line-height: 88rpx;
+		margin: 0 26upx;
+		margin-top: 48upx;
+		font-size: 32upx;
+		flex: 1;
+	}
+}
