@@ -39,7 +39,8 @@ module.exports = (api, options, rootOptions) => {
         'regenerator-runtime': '^0.12.1',// 锁定版本，避免高版本在小程序中出错
         '@dcloudio/uni-helper-json': '*',
         "vuex-persistedstate": "^4.0.0-beta.3",
-		    "y-uni-request": "^1.0.19"
+	"y-uni-request": "^1.0.19",
+	"@dcloudio/uni-ui": "*"
       },
       devDependencies: {
         "@babel/runtime": "~7.12.0",// 临时指定版本，7.13.x 会报错
