@@ -24,6 +24,12 @@ let mixin = {
 		this.removeListener()
 	},
 	methods: {
+		// 由于uni-app目前无法通过props将函数传到子组件
+		// 为所有组件添加方法
+		// 可通过这个方法将函数传到子组件
+		cusCompLoad(cb,field){
+			field && cb(this[field])
+		},
 		// 无法在onload onshow 等生命周期中派发
 		addListener() {
 			let curPage = this.curPage
