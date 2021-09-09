@@ -29,6 +29,7 @@
 <style lang="scss" scoped>
 $name: '.y-warp';
 #{$name}{
+	width: 100%;
 	.safeAreaInsetBottom{
 		padding-bottom: 0;
 		padding-bottom: constant(safe-area-inset-bottom);
