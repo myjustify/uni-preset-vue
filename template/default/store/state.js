@@ -10,9 +10,7 @@ export default {
 	failAlert: false,  //网络异常弹窗是否弹出
 	development: development ? 1 : 0,
 	version: "1.0.0", //小程序版本号
-	// apiServer: development?'http://10.0.161.30:30001/':'https://yueche.wbtech.com/', //环境地址
 	apiServer: development ? 'https://yuyue.wbtech.com/' : 'https://yueche.wbtech.com/', //环境地址
-	// apiServer: development?'http://10.0.152.137:30003/':'https://yueche.wbtech.com/', //环境地址
 	picServer: "https://yueche.wbtech.com/file/",
 	initPage: '/pages/common/index',
 	loginPage: '/pages/common/login',
@@ -21,15 +19,8 @@ export default {
 		{
 			name: '1',
 			label: "测试",
-
 			apiServer: 'https://yuyue.wbtech.com/',
 			picServer: 'https://yuyue.wbtech.com/file/'
-
-			// apiServer: "http://10.0.161.30:30001/",
-			// picServer: 'http://10.0.161.30:30001/file/'
-
-			// apiServer: "http://10.0.152.137:30003/",
-			// picServer: 'http://10.0.152.137:30003/file/'
 		},
 		{
 			name: '2',
