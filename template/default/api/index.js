@@ -25,12 +25,12 @@ reqBody.afterRequest = ({ res,resolve,reject,params,extra })=>{
 		if(store.state.authLoginAlert||store.state.loginStatus){
 			return
 		}
-		store.commit('setState',{ field:'authLoginAlert',value:true })
+		store.commit('setState',{ authLoginAlert:true })
 		util.alert({
 			msg: data.message||'登录失效，重新登录',
 			success:()=>{
 				store.commit('logout')
-				store.commit('setState',{ field:'authLoginAlert',value:false })
+				store.commit('setState',{ authLoginAlert:false })
 				store.dispatch('toLoginPage')
 			}
 		});
@@ -57,11 +57,11 @@ reqBody.afterRequest = ({ res,resolve,reject,params,extra })=>{
 }
 reqBody.failRequest = ({ err,resolve,reject,params,extra })=>{
 	if(extra.toastFail&&!store.state.failAlert){
-		store.commit("setState",{ field:'failAlert',value: true })
+		store.commit("setState",{ failAlert: true })
 		util.alert({
 			content: store.state.failMsg,
 			complete() {
-				store.commit("setState",{ field:'failAlert',value: false })
+				store.commit("setState",{ failAlert: false })
 			}
 		})
 	}else{
