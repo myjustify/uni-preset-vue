@@ -1,6 +1,6 @@
 <template>
 	<view class="cus-modal">
-		<uni-popup ref="popup" type="center" :custom="true" :maskClick="maskClick">
+		<uni-popup ref="popup" type="center" :custom="true" :maskClick="maskClick" @maskClick="bindMaskClick">
 			<view class="cus-modal-box" v-if="!custom">
 				<view v-if="showTitle" class="cus-modal-title flex-row-c" :style="[titleCss]"><text v-if="titleRequest" style="color: #F10000;">*</text>{{title}}</view>
 				<view class="cus-modal-second-title flex-row-c" v-if="secondTitle" :style="[secondTitleCss]">{{secondTitle}}</view>
@@ -84,6 +84,9 @@
 				}else{
 					this.open()
 				}
+			},
+			bindMaskClick(e){
+				this.show = false
 			},
 			open() {
 				this.show = true
