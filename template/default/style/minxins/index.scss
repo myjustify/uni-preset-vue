@@ -1,0 +1,47 @@
+// 定义混入指令，用于在非nvue环境下的flex定义，因为nvue没有display属性，会报错
+@mixin vue-flex($direction: row) {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	flex-direction: $direction;
+	align-items: center;
+	// flex-wrap: wrap;
+	/* #endif */
+}
+
+// 三角形
+@mixin trigonMixin($direction, $size: 10rpx, $color: #333333) {
+	$half: $size/2;
+	display: inline-block;
+	width: $size;
+	height: $size;
+	position: relative;
+	&::after {
+		display: block;
+		content: '';
+		width: 0rpx;
+		height: 0rpx;
+		@if $direction == rb {
+			border-bottom: $size solid $color;
+			border-left: $size solid transparent;
+		} @else if $direction == rt {
+			border-top: $size solid $color;
+			border-left: $size solid transparent;
+		} @else if $direction == lt {
+			border-top: $size solid $color;
+			border-right: $size solid transparent;
+		} @else if $direction == lb {
+			border-bottom: $size solid $color;
+			border-right: $size solid transparent;
+		} @else if $direction == b {
+			margin-top: -$half;
+			border-top: $size solid $color;
+			border-right: $size solid transparent;
+			border-left: $size solid transparent;
+		} @else if $direction == t {
+			margin-top: -$half;
+			border-bottom: $size solid $color;
+			border-right: $size solid transparent;
+			border-left: $size solid transparent;
+		}
+	}
+}
