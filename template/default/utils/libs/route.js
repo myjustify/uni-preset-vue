@@ -30,7 +30,7 @@ export function routeIntercept(){
             uni.$router.afterEach = defaultAfterEach
         }
     
-        if(/navigateTo|redirectTo|reLanuch|switchTab/.test(type)){
+        if(/navigateTo|redirectTo|reLaunch|switchTab/.test(type)){
             to = options.url||''
         }else if(/navigateBack/.test(type)){
             to = route[1]
@@ -61,9 +61,9 @@ export function routeIntercept(){
         init(options,'redirectTo')
     }
     
-    const cacheReLanuch = uni.reLanuch
-    uni.reLanuch = function(options={}){
-        init(options,'reLanuch')
+    const cacheReLaunch = uni.reLaunch
+    uni.reLaunch = function(options={}){
+        init(options,'reLaunch')
     }
     
     const cacheSwitchTab = uni.switchTab
@@ -81,7 +81,7 @@ export function routeIntercept(){
         const fns = {
             navigateTo: cacheNavigateTo,
             redirectTo: cacheRedirectTo,
-            reLanuch: cacheReLanuch,
+            reLaunch: cacheReLaunch,
             switchTab: cacheSwitchTab,
             navigateBack: cacheNavigateBack
         }
